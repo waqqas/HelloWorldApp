@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">HelloWorldApp</string>
-    <string name="helloMessage">Hello I am the new developer</string>
+    <string name="helloMessage">Hello again</string>
 </resources>
