@@ -23,4 +23,24 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
+
+    // Taplytics
+    compile("com.taplytics.sdk:taplytics:+@aar")
+
+    // Dependencies for Taplytics
+    compile("com.mcxiaoke.volley:library:+")
+    compile("com.squareup.okhttp:okhttp-urlconnection:+")
+    compile("com.squareup.okhttp:okhttp:+")
+    //Excluding org.json due to compiler warnings
+    compile("com.github.nkzawa:socket.io-client:+") {
+        exclude group: "org.json"
+    }
+    compile("com.github.nkzawa:engine.io-client:+") {
+        exclude group: "org.json"
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://github.com/taplytics/Taplytics-Android-SDK/raw/master/AndroidStudio/' }
 }

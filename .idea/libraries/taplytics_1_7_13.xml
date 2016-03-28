@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="taplytics-1.7.13">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.taplytics.sdk/taplytics/1.7.13/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.taplytics.sdk/taplytics/1.7.13/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
