@@ -31,12 +31,10 @@ dependencies {
     compile("com.mcxiaoke.volley:library:+")
     compile("com.squareup.okhttp:okhttp-urlconnection:+")
     compile("com.squareup.okhttp:okhttp:+")
-    //Excluding org.json due to compiler warnings
-    compile("com.github.nkzawa:socket.io-client:+") {
-        exclude group: "org.json"
-    }
-    compile("com.github.nkzawa:engine.io-client:+") {
-        exclude group: "org.json"
+
+    compile('io.socket:socket.io-client:+') {
+        // excluding org.json which is provided by Android
+        exclude group: 'org.json', module: 'json'
     }
 }
 
