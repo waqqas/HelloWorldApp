@@ -1,12 +1,15 @@
 package com.example.mbella.helloworldapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
 
 import com.taplytics.sdk.Taplytics;
 import com.taplytics.sdk.TaplyticsPushNotificationIntentListener;
 import com.taplytics.sdk.TaplyticsPushNotificationListener;
 import com.taplytics.sdk.TaplyticsPushOpenedListener;
+import com.taplytics.sdk.TaplyticsPushTokenListener;
 import com.taplytics.sdk.TaplyticsVar;
 import com.taplytics.sdk.TaplyticsVarListener;
 
@@ -53,6 +56,13 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
+        Taplytics.setTaplyticsPushTokenListener(new TaplyticsPushTokenListener() {
+            @Override
+            public void pushTokenReceived(String token) {
+                logger.i("Push token received = %s", token);
+            }
+        });
+
         Taplytics.setPushNotificationOpenedListener(new TaplyticsPushOpenedListener() {
             @Override
             public void pushOpened(Bundle bundle) {
@@ -61,13 +71,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        TaplyticsVar<String> var = new TaplyticsVar<>("test1", "", new TaplyticsVarListener() {
+        TaplyticsVar<String> var = new TaplyticsVar<>("buttonText", "Button1", new TaplyticsVarListener() {
             @Override
             public void variableUpdated(Object value) {
                 // Update your interface/functionality with new value.
+                Button button = (Button) findViewById(R.id.button);
+                button.setText(value.toString());
             }
         });
+
+
 
 
         // set user attributes
@@ -89,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        Taplytics.logEvent("test");
+        //Taplytics.logEvent("test");
 
         setContentView(R.layout.activity_main);
     }

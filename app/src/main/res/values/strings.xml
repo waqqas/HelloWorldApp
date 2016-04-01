@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">HelloWorldApp</string>
     <string name="helloMessage">Hello again</string>
+    <string name="buttonText">From Strings</string>
 </resources>
