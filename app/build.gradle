@@ -26,23 +26,25 @@ dependencies {
 
     compile('com.noveogroup.android:android-logger:1.3.5')
 
-    // Taplytics
-    compile("com.taplytics.sdk:taplytics:+@aar")
-
-    // Dependencies for Taplytics
+    //Dependencies for taplytics
     compile("com.mcxiaoke.volley:library:+")
-    compile("com.squareup.okhttp:okhttp-urlconnection:+")
-    compile("com.squareup.okhttp:okhttp:+")
 
-    compile('io.socket:socket.io-client:+') {
+    //Excluding org.json to use Android version instead
+    //socket.io connections only made on debug devices.
+    //To make live changes on a release build, remove the `debugcompile` flag
+    debugCompile ('io.socket:socket.io-client:+') {
         // excluding org.json which is provided by Android
         exclude group: 'org.json', module: 'json'
     }
 
-    compile('com.google.android.gms:play-services-location:8.1.0')
+    //Taplytics
+    compile("com.taplytics.sdk:taplytics:+@aar")
+
+    //Only include this if you wish to enable push notifications:
+    compile("com.google.android.gms:play-services-gcm:8.+")
+
 }
 
 repositories {
-    mavenCentral()
-    maven { url 'https://github.com/taplytics/Taplytics-Android-SDK/raw/master/AndroidStudio/' }
+    maven { url "https://github.com/taplytics/Taplytics-Android-SDK/raw/master/AndroidStudio/" }
 }
